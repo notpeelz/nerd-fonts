@@ -234,12 +234,12 @@ function generate_readme {
   then
     # add to the file
     {
-      printf "\`\`\`sh"
+      printf '```sh'
       printf "\\n# %s Possible Combinations:\\n" "$combination_count"
       printf "\\n"
       printf "%s" "$combinations"
       printf "\\n"
-      printf "\`\`\`"
+      printf '```'
     } >> "$combinations_filename"
   fi
 }
