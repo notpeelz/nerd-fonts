@@ -512,14 +512,16 @@ class font_patcher:
         # Most glyphs we want to maximize during the scale.  However, there are some
         # that need to be small or stay relative in size to each other.
         # The following list are those glyphs.  A tuple represents a range.
+        SETI_SCALE_LIST  = None #{'ScaleGlyph': 0xE60E, 'GlyphsToScale': [(0xe6bd, 0xe6c3)]}
         DEVI_SCALE_LIST  = {'ScaleGlyph': 0xE60E, 'GlyphsToScale': [(0xe6bd, 0xe6c3)]}
+        #DEVI_SCALE_LIST  = {'ScaleGlyph': 0xE60E, 'GlyphsToScale': [(0xe600, 0xe6c3)]}
         FONTA_SCALE_LIST = {'ScaleGlyph': 0xF17A, 'GlyphsToScale': [0xf005, 0xf006, (0xf026, 0xf028), 0xf02b, 0xf02c, (0xf031, 0xf035), (0xf044, 0xf054), (0xf060, 0xf063), 0xf077, 0xf078, 0xf07d, 0xf07e, 0xf089, (0xf0d7, 0xf0da), (0xf0dc, 0xf0de), (0xf100, 0xf107), 0xf141, 0xf142, (0xf153, 0xf15a), (0xf175, 0xf178), 0xf182, 0xf183, (0xf221, 0xf22d), (0xf255, 0xf25b)]}
         OCTI_SCALE_LIST  = {'ScaleGlyph': 0xF02E, 'GlyphsToScale': [(0xf03d, 0xf040), 0xf044, (0xf051, 0xf053), 0xf05a, 0xf05b, 0xf071, 0xf078, (0xf09f, 0xf0aa), 0xf0ca]}
 
         # Define the character ranges
         # Symbol font ranges
         self.patch_set = [
-            {'Enabled': True,                           'Name': "Seti-UI + Custom",        'Filename': "original-source.otf",              'Exact': False,                               'SymStart': 0xE4FA, 'SymEnd': 0xE530, 'SrcStart': 0xE5FA, 'SrcEnd': 0xE630, 'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},
+            {'Enabled': True,                           'Name': "Seti-UI + Custom",        'Filename': "original-source.otf",              'Exact': False,                               'SymStart': 0xE4FA, 'SymEnd': 0xE530, 'SrcStart': 0xE5FA, 'SrcEnd': 0xE630, 'ScaleGlyph': SETI_SCALE_LIST,             'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': True,                           'Name': "Devicons",                'Filename': "devicons.ttf",                     'Exact': False,                               'SymStart': 0xE600, 'SymEnd': 0xE6C5, 'SrcStart': 0xE700, 'SrcEnd': 0xE7C5, 'ScaleGlyph': DEVI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': self.args.powerline,            'Name': "Powerline Symbols",       'Filename': "PowerlineSymbols.otf",             'Exact': True,                                'SymStart': 0xE0A0, 'SymEnd': 0xE0A2, 'SrcStart': None,   'SrcEnd': None,   'ScaleGlyph': None,             'Attributes': SYM_ATTR_POWERLINE},
             {'Enabled': self.args.powerline,            'Name': "Powerline Symbols",       'Filename': "PowerlineSymbols.otf",             'Exact': True,                                'SymStart': 0xE0B0, 'SymEnd': 0xE0B3, 'SrcStart': None,   'SrcEnd': None,   'ScaleGlyph': None,             'Attributes': SYM_ATTR_POWERLINE},
